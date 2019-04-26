@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.entity.Dscription" table="DESCRIPTION">
+        <id name="descid" type="java.lang.Integer">
+            <column name="DESCID" />
+            <generator class="native" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+         <set name="equipSet" inverse="true" cascade="delete">
+            <key>
+                <column name="equiClass" />
+            </key>
+            <one-to-many class="com.entity.EquipmentEntry" />
+        </set>
+    </class>
+</hibernate-mapping>

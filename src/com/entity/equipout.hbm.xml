@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.EquipoutEntity" table="equipout" schema="ssh_employee">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="equipid">
+            <column name="equipid" sql-type="int(11)"/>
+        </property>
+        <property name="equipOutNum">
+            <column name="equip_out_num" sql-type="int(11)"/>
+        </property>
+        <property name="outDate">
+            <column name="out_date" sql-type="date"/>
+        </property>
+        <property name="user">
+            <column name="user" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="equipName">
+            <column name="equip_name" sql-type="varchar(50)" length="50"/>
+        </property>
+    </class>
+</hibernate-mapping>

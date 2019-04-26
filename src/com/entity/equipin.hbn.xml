@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.entity.EquipinEntity" table="equipin" schema="ssh_employee">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="equipId">
+            <column name="equip_id" sql-type="int(11)"/>
+        </property>
+        <property name="equipName">
+            <column name="equip_name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="equipInNum">
+            <column name="equip_in_num" sql-type="int(11)"/>
+        </property>
+        <property name="inDate">
+            <column name="in_date" sql-type="date"/>
+        </property>
+        <property name="equipComp">
+            <column name="equip_comp" sql-type="varchar(100)" length="100"/>
+        </property>
+    </class>
+</hibernate-mapping>

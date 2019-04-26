@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.entity.Employee" table="employe">
+        <id name="eid">
+            <column name="EID" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="department" class="com.entity.Department" lazy="false" fetch="select">
+            <column name="DNO" />
+        </many-to-one>
+
+        <property name="ename">
+            <column name="ENAME" />
+        </property>
+        <property name="sex">
+            <column name="SEX" />
+        </property>
+        <property name="birthday">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="joinDate">
+            <column name="JOINDATE" />
+        </property>
+        <property name="eno">
+            <column name="ENO" />
+        </property>
+        <property name="username">
+            <column name="USERNAME" />
+        </property>
+        <property name="user_type">
+            <column name="USERTYPE" />
+        </property>
+        <property name="password">
+            <column name="PASSWORD" />
+        </property>
+    </class>
+</hibernate-mapping>

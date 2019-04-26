@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+    "http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<!--suppress ALL -->
+<struts>
+	<package name="default" extends="struts-default,json-default" namespace="/">
+
+		<!--拦截器配置-->
+		<interceptors>
+			<interceptor name="checklogin" class="com.action.interceptorAction.LoginInter"/>
+			<interceptor-stack name="myinterceptor">
+				<interceptor-ref name="checklogin"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myinterceptor"/>
+		<global-results>
+			<result name="INPUT">/index.jsp</result>
+		</global-results>
+
+		<action name="employee_*" class="employeeAction" method="{1}" >
+			<result name="INPUT">/index.jsp</result>
+
+			<result name="SUCCESS" type="redirect" >/frame.jsp</result>
+			<result name="findAll">/jsp/employee/listEmployee.jsp</result>
+			<result name="goAddEmployee">/jsp/employee/addEmployee.jsp</result>
+			<result name="addEmployeeSuccess" type="redirect">employee_findAll.action</result>
+			<result name="goEditEmployee">/jsp/employee/editEmployee.jsp</result>
+			<result name="editSuccess" type="redirect">employee_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">employee_findAll.action</result>
+		</action>
+		<action name="department_*" class="departmentAction" method="{1}">
+			<result name="findAll">/jsp/department/listDepartment.jsp</result>
+			<result name="goAddDepartment">/jsp/department/addDepartment.jsp</result>
+			<result name="addSuccess" type="redirect">department_findAll.action</result>
+			<result name="goEditDepartment">/jsp/department/editDepartment.jsp</result>
+			<result name="updateSuccess" type="redirect">department_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">department_findAll.action</result>
+		</action>
+		<action name="equipment_*" class="equipmentAction" method="{1}">
+			<result name="success" type="json">
+                <param name="root">map</param>
+			</result>
+			<result name="findAll">/jsp/equipment/listEquipment.jsp</result>
+			<result name="goAddEquipment">/jsp/equipment/addEquipment.jsp</result>
+			<result name="addEquipmentSuccess" type="redirect">equipment_findAll.action</result>
+			<result name="goEditEquipment">/jsp/equipment/editEquipment.jsp</result>
+			<result name="updateSuccess" type="redirect">equipment_findAll.action</result>
+			<result name="deleteSuccess" type="redirect">equipment_findAll.action</result>
+		</action>
+	</package>
+</struts>    
